@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import  { useState } from "react";
 // React Query hook
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { useProducts } from "../hooks/products";

@@ -3,7 +3,8 @@ import imageCompression from "browser-image-compression";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import type { AxiosError } from "axios";
-import apiRequest from "@/utils/apiRequest";
+import apiRequest from "../utils/apiRequest";
+
 
 export interface ProductUploadFormData {
   name: string;
