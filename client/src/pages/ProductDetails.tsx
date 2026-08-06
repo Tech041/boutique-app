@@ -159,6 +159,7 @@ const ProductDetails = () => {
             </h2>
             <Link
               to="/shop"
+              onClick={() => scrollTo(0, 0)}
               className="text-sm md:text-base text-black hover:scale-110"
             >
               All Products →

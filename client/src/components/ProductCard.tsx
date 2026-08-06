@@ -5,23 +5,20 @@ import { FaHeart } from "react-icons/fa";
 import { FiHeart } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
-export const ProductCard = ({
-  product,
-  
-}: {
-  product: any;
-  
-}) => {
+export const ProductCard = ({ product }: { product: any }) => {
   const [liked, setLiked] = useState(false);
 
   return (
-    <Link to={`/product/${product.slug}`} className="relative group">
+    <Link
+      onClick={() => scrollTo(0, 0)}
+      to={`/product/${product.slug}`}
+      className="relative group"
+    >
       {/* Product image */}
       <div className="relative w-full aspect-3/4 overflow-hidden rounded-lg cursor-pointer">
         <img
           src={product.image}
           alt={product.name}
-          
           className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
         />
         {/* NEW badge */}

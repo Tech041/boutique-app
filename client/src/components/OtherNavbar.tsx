@@ -60,6 +60,7 @@ const OtherNavbar = () => {
             {/* Brand: centered on desktop, left on mobile */}
             <Link
               to={"/"}
+              onClick={() => scrollTo(0, 0)}
               className={`text-xl text-black font-bold md:absolute md:left-1/2 md:transform md:-translate-x-1/2`}
             >
               TFAPPAREL

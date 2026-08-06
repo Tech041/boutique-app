@@ -5,7 +5,7 @@ import ProductCard from "./ProductCard";
 
 import Loader from "./Loader";
 import { useCollectionProducts } from "../hooks/products";
-
+import { Link } from "react-router-dom";
 
 const BestSellers = () => {
   // Fetch products from backend using our hook
@@ -23,9 +23,13 @@ const BestSellers = () => {
       <Container>
         <div className="flex justify-between items-center">
           <h2 className="text-2xl md:text-3xl font-bold">Best sellers</h2>
-          <a href="/shop" className="text-sm md:text-base text-gray-400">
+          <Link
+            onClick={() => scrollTo(0, 0)}
+            to="/shop"
+            className="text-sm md:text-base text-gray-400"
+          >
             Shop Best Sellers →
-          </a>
+          </Link>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-8">

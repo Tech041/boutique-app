@@ -50,11 +50,13 @@ const Navbar = () => {
             </nav>
 
             {/* Brand: centered on desktop, left on mobile */}
-            <span
+            <Link
+              onClick={() => scrollTo(0, 0)}
+              to={"/"}
               className={`text-xl ${open ? "text-black" : "text-white"} font-bold md:absolute md:left-1/2 md:transform md:-translate-x-1/2`}
             >
               TFAPPAREL
-            </span>
+            </Link>
 
             {/* Right side icons */}
             <div className="flex items-center space-x-4 md:space-x-10 ml-auto">
