@@ -17,7 +17,7 @@ import productRouter from "./routes/product.route";
 const corsOptions = {
   origin: [
     "http://localhost:3000",
-    "https://tfapparel-boutique.vercel.app", // dev
+    "https://boutique-app-blush.vercel.app/", // dev
   ],
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
