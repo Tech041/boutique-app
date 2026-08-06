@@ -1,5 +1,4 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import {
   fetchProductBySlug,
   fetchProducts,
@@ -7,6 +6,7 @@ import {
   type Product,
   type ProductSlug,
 } from "../services/products";
+import apiRequest from "../utils/apiRequest";
 
 export const useProducts = (page: number, limit: number) => {
   return useQuery<PaginatedResponse>({
@@ -32,10 +32,10 @@ export const useCollectionProducts = (collectionType: string) => {
   return useQuery<Product[]>({
     queryKey: ["collectionProducts", collectionType],
     queryFn: async () => {
-      const { data } = await axios.get<{
+      const { data } = await apiRequest.get<{
         success: boolean;
         products: Product[];
-      }>(`http://localhost:5000/api/shop/collection/${collectionType}`);
+      }>(`shop/collection/${collectionType}`);
       return data.products;
     },
     enabled: !!collectionType,
