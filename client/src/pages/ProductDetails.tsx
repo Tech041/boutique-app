@@ -73,7 +73,7 @@ const ProductDetails = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-20">
           {/* Left column: product info */}
           <div>
-            <p className="text-xs text-gray-400 mb-2">HOME / JERSEYS</p>
+            <p className="text-xs text-gray-400 mb-2">Collection Type</p>
             <span className="text-xs uppercase tracking-wide text-red-500 font-semibold">
               {product.collectionType}
             </span>
@@ -124,7 +124,6 @@ const ProductDetails = () => {
                   +
                 </button>
               </div>
-              <p className="text-xs text-gray-500 mt-1">Max qty reached</p>
             </div>
 
             {/* Buy button */}
@@ -134,11 +133,6 @@ const ProductDetails = () => {
             >
               Add To Cart
             </button>
-
-            {/* Stock notice */}
-            <p className="mt-4 text-sm text-red-500">
-              • Hurry! Only 4 left in stock
-            </p>
           </div>
 
           {/* Right column: product image */}

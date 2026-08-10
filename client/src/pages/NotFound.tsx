@@ -5,10 +5,10 @@ const NotFoundPage: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gray-50 text-center px-6">
+    <main className="flex flex-col items-center justify-center h-screen  text-center px-6 min-h-screen mb-130 lg:mb-80 relative z-30 bg-white">
       <h1 className="text-6xl font-bold text-red-500">404</h1>
       <p className="mt-4 text-lg text-gray-700">
-        Oops! The  page you’re searching for could not be found.
+        Oops! The page you’re searching for could not be found.
       </p>
       <button
         onClick={() => navigate("/")}
@@ -16,7 +16,7 @@ const NotFoundPage: React.FC = () => {
       >
         Go Back Home
       </button>
-    </div>
+    </main>
   );
 };
 

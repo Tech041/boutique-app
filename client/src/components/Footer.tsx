@@ -126,7 +126,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <p className="w-full text-center text-xs text-red-500">
+        <p className="w-full text-center font-semibold text-xs text-red-700">
           TFAPPREL {new Date().getFullYear()} All rights reserved.
         </p>
       </Container>
