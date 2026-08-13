@@ -17,7 +17,7 @@ const ProductStat: React.FC = () => {
       </h1>
       <div className=" mb-6">
         <div className="bg-pink-800 p-4 rounded-lg text-center">
-          <p className="text-sm text-white">Total Porducts</p>
+          <p className="text-sm text-white">Total Products</p>
           <p className="text-2xl font-bold text-white">{totalProducts}</p>
         </div>
       </div>
