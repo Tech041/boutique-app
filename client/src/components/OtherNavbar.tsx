@@ -14,6 +14,7 @@ import { useNavbarStore } from "../store/uiStore";
 import { useCartStore } from "../store/cartStore";
 import { Link } from "react-router-dom";
 import { useAuthStore } from "../store/authStore";
+import { useState } from "react";
 
 const OtherNavbar = () => {
   const { open, setOpen, openCart } = useNavbarStore();
@@ -21,6 +22,11 @@ const OtherNavbar = () => {
   const cartCount = items.reduce((sum, item) => sum + item.quantity, 0);
   const token = useAuthStore((state) => state.token);
   const logout = useAuthStore((state) => state.logout);
+  const [isClicked, setIsClicked] = useState<boolean>(false);
+
+  const handleClick = () => {
+    setIsClicked((prev) => !prev);
+  };
 
   return (
     <header className="w-full fixed top-0 left-0 bg-inherit z-50">
@@ -28,7 +34,7 @@ const OtherNavbar = () => {
         <div className=" mx-auto ">
           <div className="flex justify-between items-center h-10">
             {/* Left side links (desktop only) */}
-            <nav className="">
+            <nav className="flex items-center gap-2">
               <ul className="hidden md:flex space-x-6 text-black">
                 <li>
                   <Link
@@ -94,8 +100,9 @@ const OtherNavbar = () => {
                 />
               </Link>
               <FiHeart
+                onClick={handleClick}
                 size={25}
-                color="black"
+                color={isClicked ? "black" : "red"}
                 className={`cursor-pointer ${open ? "hidden" : "block"} `}
               />
               <div onClick={openCart} className="relative cursor-pointer">

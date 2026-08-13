@@ -14,6 +14,7 @@ import { useNavbarStore } from "../store/uiStore";
 import { useCartStore } from "../store/cartStore";
 import { Link } from "react-router-dom";
 import { useAuthStore } from "../store/authStore";
+import { useState } from "react";
 
 const Navbar = () => {
   const { open, setOpen, openCart } = useNavbarStore();
@@ -21,6 +22,11 @@ const Navbar = () => {
   const cartCount = items.reduce((sum, item) => sum + item.quantity, 0);
   const token = useAuthStore((state) => state.token);
   const logout = useAuthStore((state) => state.logout);
+  const [isClicked, setIsClicked] = useState<boolean>(false);
+
+  const handleClick = () => {
+    setIsClicked((prev) => !prev);
+  };
 
   return (
     <header className="w-full fixed top-0 left-0 bg-inherit z-50">
@@ -86,8 +92,9 @@ const Navbar = () => {
                 />
               </Link>
               <FiHeart
+                onClick={handleClick}
                 size={25}
-                color="white"
+                color={isClicked ? "white" : "red"}
                 className={`cursor-pointer ${open ? "hidden" : "block"} `}
               />
               <div onClick={openCart} className="relative cursor-pointer">
