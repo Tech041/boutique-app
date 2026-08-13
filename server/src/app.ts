@@ -13,6 +13,8 @@ import { connectDB } from "./config/db";
 import connectCloudinary from "./config/cloudinary";
 import uploadRouter from "./routes/upload.route";
 import productRouter from "./routes/product.route";
+import authRouter from "./routes/auth.route";
+import trackerRouter from "./routes/tracker.route";
 
 const corsOptions = {
   origin: [
@@ -55,6 +57,8 @@ app.get("/", (req: Request, res: Response) => {
 
 app.use("/api/products", uploadRouter);
 app.use("/api/shop", productRouter);
+app.use("/api/auth", authRouter);
+app.use("/api/tracker", trackerRouter);
 
 // catch all non existing routes
 app.use((req: Request, res: Response, next: NextFunction) => {

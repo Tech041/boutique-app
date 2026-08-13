@@ -1,5 +1,4 @@
-
-import  { useState } from "react";
+import { useState } from "react";
 // React Query hook
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { useProducts } from "../hooks/products";
@@ -16,7 +15,6 @@ const Products = () => {
   const limit = 6;
 
   const { data, isLoading, isError } = useProducts(page, limit);
-  console.log("Data", data);
 
   const sizeOptions = ["XS", "S", "M", "L", "XL", "XXL"];
   const collectionOptions = ["Best Sellers", "New Arrivals"];
@@ -48,7 +46,7 @@ const Products = () => {
       <Container>
         {/* Header */}
         <div className="flex items-center justify-between mt-20 mb-5">
-          <h1 className="text-2xl font-bold">Jerseys</h1>
+          <h1 className="text-2xl font-bold">Filters</h1>
           <select
             value={sort}
             onChange={(e) => setSort(e.target.value)}

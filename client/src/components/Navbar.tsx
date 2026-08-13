@@ -13,11 +13,14 @@ import Container from "./Container";
 import { useNavbarStore } from "../store/uiStore";
 import { useCartStore } from "../store/cartStore";
 import { Link } from "react-router-dom";
+import { useAuthStore } from "../store/authStore";
 
 const Navbar = () => {
   const { open, setOpen, openCart } = useNavbarStore();
   const items = useCartStore((state) => state.items); // ✅ get cart items
   const cartCount = items.reduce((sum, item) => sum + item.quantity, 0);
+  const token = useAuthStore((state) => state.token);
+  const logout = useAuthStore((state) => state.logout);
 
   return (
     <header className="w-full fixed top-0 left-0 bg-inherit z-50">
@@ -25,7 +28,7 @@ const Navbar = () => {
         <div className=" mx-auto ">
           <div className="flex justify-between items-center h-10">
             {/* Left side links (desktop only) */}
-            <nav className="">
+            <nav className="flex items-center gap-2">
               <ul className="hidden md:flex space-x-6 text-white">
                 <li>
                   <Link
@@ -46,7 +49,22 @@ const Navbar = () => {
                     Contact
                   </Link>
                 </li>
+                {token && (
+                  <li>
+                    <Link to="/dashboard" className="cursor-pointer">
+                      Dashboard
+                    </Link>
+                  </li>
+                )}
               </ul>
+              {token && (
+                <button
+                  onClick={logout}
+                  className="bg-red-500 text-white px-4 py-1 cursor-pointer rounded-2xl hidden lg:block"
+                >
+                  Logout
+                </button>
+              )}
             </nav>
 
             {/* Brand: centered on desktop, left on mobile */}
@@ -60,11 +78,13 @@ const Navbar = () => {
 
             {/* Right side icons */}
             <div className="flex items-center space-x-4 md:space-x-10 ml-auto">
-              <FiUser
-                size={25}
-                color="white"
-                className={`cursor-pointer ${open ? "hidden" : "block"} `}
-              />
+              <Link to={"/sign-in"} onClick={() => scrollTo(0, 0)}>
+                <FiUser
+                  size={25}
+                  color="white"
+                  className={`cursor-pointer ${open ? "hidden" : "block"} `}
+                />
+              </Link>
               <FiHeart
                 size={25}
                 color="white"
@@ -104,11 +124,11 @@ const Navbar = () => {
 
         {/* Mobile menu with smooth slide */}
         <div
-          className={`md:hidden fixed ${open ? "top-16" : "top-0"} left-0 w-full bg-white transform transition-transform duration-500 ease-in-out ${
+          className={`md:hidden fixed ${open ? "top-16" : "top-0"} left-0 w-full  bg-white transform transition-transform duration-500 ease-in-out ${
             open ? "translate-y-0" : "-translate-y-full "
           }`}
         >
-          <nav className="mt-10">
+          <nav className="my-10 ">
             <ul className="flex flex-col space-y-6 p-4 text-black text-2xl font-bold">
               <li>
                 <Link
@@ -146,7 +166,32 @@ const Navbar = () => {
                   Contact
                 </Link>
               </li>
+
+              {token && (
+                <li>
+                  <Link
+                    onClick={() => {
+                      setOpen(!open);
+                      scrollTo(0, 0);
+                    }}
+                    to="/dashboard"
+                    className="cursor-pointer"
+                  >
+                    Dashboard
+                  </Link>
+                </li>
+              )}
             </ul>
+            {token && (
+              <div className="mx-5 mt-5">
+                <button
+                  onClick={logout}
+                  className="cursor-pointer bg-red-500 text-white px-4 py-2 w-full rounded-2xl "
+                >
+                  Logout
+                </button>
+              </div>
+            )}
           </nav>
         </div>
       </Container>
