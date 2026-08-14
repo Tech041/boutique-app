@@ -43,7 +43,7 @@ export default function ProductTable() {
                     />
                   </td>
                   <td className="p-3">{product.name}</td>
-                  <td className="p-3">${product.price}</td>
+                  <td className="p-3">₦{product.price}</td>
                   <td className="p-3">{product.collectionType}</td>
                   <td className="p-3 flex gap-3">
                     <button
