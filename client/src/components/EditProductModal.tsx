@@ -48,7 +48,7 @@ export default function EditProductModal({ product, onClose }: any) {
           name="description"
           value={form.description}
           onChange={handleChange}
-          className="w-full border px-3 py-2 rounded-2xl mb-3"
+          className="w-full border px-3 py-2 rounded-2xl mb-3 min-h-30"
         />
         <input
           type="number"
