@@ -84,13 +84,15 @@ const Navbar = () => {
 
             {/* Right side icons */}
             <div className="flex items-center space-x-4 md:space-x-10 ml-auto">
-              <Link to={"/sign-in"} onClick={() => scrollTo(0, 0)}>
-                <FiUser
-                  size={25}
-                  color="white"
-                  className={`cursor-pointer ${open ? "hidden" : "block"} `}
-                />
-              </Link>
+              {!token && (
+                <Link to={"/sign-in"} onClick={() => scrollTo(0, 0)}>
+                  <FiUser
+                    size={25}
+                    color="white"
+                    className={`cursor-pointer ${open ? "hidden" : "block"} `}
+                  />
+                </Link>
+              )}
               <FiHeart
                 onClick={handleClick}
                 size={25}

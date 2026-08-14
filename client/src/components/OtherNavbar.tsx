@@ -92,13 +92,15 @@ const OtherNavbar = () => {
 
             {/* Right side icons */}
             <div className="flex items-center space-x-4 md:space-x-10 ml-auto">
-              <Link onClick={() => scrollTo(0, 0)} to={"/sign-in"}>
-                <FiUser
-                  size={25}
-                  color="black"
-                  className={`cursor-pointer ${open ? "hidden" : "block"} `}
-                />
-              </Link>
+              {!token && (
+                <Link onClick={() => scrollTo(0, 0)} to={"/sign-in"}>
+                  <FiUser
+                    size={25}
+                    color="black"
+                    className={`cursor-pointer ${open ? "hidden" : "block"} `}
+                  />
+                </Link>
+              )}
               <FiHeart
                 onClick={handleClick}
                 size={25}
