@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { getVisitorStats } from "../services/tracker";
+import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 
 const TrackerDashboard: React.FC = () => {
   const [page, setPage] = useState(1);
@@ -26,15 +27,11 @@ const TrackerDashboard: React.FC = () => {
       <div className="grid grid-cols-2 gap-4 mb-6">
         <div className="bg-black/50 p-4 rounded-lg text-center">
           <p className="text-sm text-white">Daily Unique Visitors</p>
-          <p className="text-2xl font-bold text-white">
-            {stats.dailyUnique}
-          </p>
+          <p className="text-2xl font-bold text-white">{stats.dailyUnique}</p>
         </div>
         <div className="bg-green-800 text-white p-4 rounded-lg text-center">
           <p className="text-sm ">Total Unique Visitors</p>
-          <p className="text-2xl font-bold">
-            {stats.totalUnique}
-          </p>
+          <p className="text-2xl font-bold">{stats.totalUnique}</p>
         </div>
       </div>
 
@@ -62,14 +59,14 @@ const TrackerDashboard: React.FC = () => {
               : "bg-black text-white "
           }`}
         >
-          Prev
+          <FiArrowLeft />
         </button>
         <button
           disabled={page === stats.totalPages}
           onClick={() => setPage(page + 1)}
           className="px-4 py-2 rounded-full cursor-pointer text-sm bg-black text-white "
         >
-          Next
+          <FiArrowRight />
         </button>
       </div>
     </section>

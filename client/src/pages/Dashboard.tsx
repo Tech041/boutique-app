@@ -1,6 +1,7 @@
 import AdminNavbar from "../components/AdminNavbar";
 import Container from "../components/Container";
 import ProductStat from "../components/ProductStats";
+import ProductTable from "../components/ProductTable";
 import TrackerDashboard from "../components/TrackerDashboard";
 
 const Dashboard = () => {
@@ -15,6 +16,7 @@ const Dashboard = () => {
           <h2 className="text-black font-bold my-3">Welcome back Admin!</h2>
           <TrackerDashboard />
           <ProductStat />
+          <ProductTable />
         </div>
       </Container>{" "}
     </main>
